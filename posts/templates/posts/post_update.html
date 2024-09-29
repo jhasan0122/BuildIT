@@ -1,0 +1,29 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+    <section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+      <form method="POST">
+          {% csrf_token %}
+          <h1>Update Post</h1>
+          <div class="relative flex-grow w-full">
+{#            <label for="title" class="leading-7 text-lg font-bold text-gray-600">Title</label>#}
+{#            <input type="text" id="title" name="title" value="{{ form.title.value }}"  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">#}
+          </div>
+
+          <div class="relative flex-grow w-full">
+{#            <label for="content" class="leading-7 text-lg font-bold text-gray-600">Details</label>#}
+{#              <textarea id="content" name="content" cols="60" rows="12" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ form.content.value }}</textarea>#}
+          </div>
+          <button class="text-white bg-indigo-500 border-0 py-2 my-8 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Update</button>
+          <a href="{% url 'post-detail' post.id %}" class="my-8 ml-4 text-white bg-red-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Cancel</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+{% endblock content %}

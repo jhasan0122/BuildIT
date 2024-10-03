@@ -393,11 +393,42 @@ def add_review(request, post_id):
     return render(request, 'posts/add_review.html', {'form': form, 'post': post, 'data': post_review,'avg_rating':average_rating_for_post,'one':one,'two':two,'three':three,'four':four,'five':five,'all_review':all_review})
 
 
-# def reviewInfo(request, post_id):
-#     post = get_object_or_404(Post, id=post_id)
-#
-#
-#     return render(request, 'posts/add_review.html', {'data': post_review})
+
+from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Post
+from .forms import PostSearchForm
+
+
+class PostSearchView(ListView):
+    model = Post
+    template_name = 'posts/post_search_results.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        """
+        Override the get_queryset method to filter posts by address using the search query.
+        The search is case-insensitive and returns results where the address contains the search term.
+        """
+        queryset = Post.objects.all()
+        form = PostSearchForm(self.request.GET or None)
+
+        if form.is_valid():
+            address = form.cleaned_data.get('address')
+            if address:
+                # Filter posts where the address contains the search term (case-insensitive)
+                queryset = queryset.filter(address__icontains=address)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        """
+        Pass the search form into the context so it can be rendered in the template.
+        """
+        context = super().get_context_data(**kwargs)
+        context['form_x'] = PostSearchForm(self.request.GET)
+        return context
+
 
 
 

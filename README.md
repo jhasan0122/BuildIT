@@ -35,6 +35,7 @@ pip install -r requirements.txt
 
 #### - Migrate to database
 ```
+python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```
@@ -42,7 +43,7 @@ python manage.py createsuperuser
 <br>
 
 #### - Run application
-```
+```angular2html
 python manage.py runserver
 ```
 
@@ -61,9 +62,11 @@ exit()
 ```
 source venv/bin/activate
 pip freeze > requirements.txt
+```
 
-
-
+### Shell
+```angular2html
+python manage.py shell
 ```
 
 

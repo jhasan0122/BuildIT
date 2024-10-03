@@ -14,6 +14,7 @@ urlpatterns = [
     # path("user/<str:username>", UserPostListView.as_view(), name='user-posts'),
     path("post/<int:pk>/", PostDetailView.as_view(), name='post-detail'),
     path("post/<int:pk>/payment", PostPayView.as_view(), name='post-pay'),
+    path('post/<int:post_id>/review/', views.add_review, name='add_review'),
     path("post/new/", PostCreateView, name='post-create'),
     path("post/<int:pk>/update/", PostUpdateView.as_view(), name='post-update'),
     path("post/<int:pk>/delete/", PostDeleteView.as_view(), name='post-delete'),

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .forms import ReviewForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
@@ -9,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.views.generic import TemplateView
 from django import template
+from .models import Review
+from django.db.models import Avg
 import numpy as np
 import pandas as pd
 import joblib
@@ -357,6 +360,46 @@ def prediction(request):
 
     else:
         return render(request, 'posts/prediction.html')
+
+
+
+
+
+
+def add_review(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    # Filter reviews by post and count distinct users who reviewed
+    post_review = Review.objects.filter(post=post).values('user').distinct().count()
+    average_rating_for_post = Review.objects.filter(post=post).aggregate(average_rating=Avg('rating'))
+    one = Review.objects.filter(rating=1,post=post).values('user').distinct().count()
+    two = Review.objects.filter(rating=2,post=post).values('user').distinct().count()
+    three = Review.objects.filter(rating=3,post=post).values('user').distinct().count()
+    four = Review.objects.filter(rating=4,post=post).values('user').distinct().count()
+    five = Review.objects.filter(rating=5,post=post).values('user').distinct().count()
+    all_review  = Review.objects.filter(post=post).order_by('-created_at')[:5]
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user  # Attach the logged-in user
+            review.post = post  # Attach the post being reviewed
+            review.save()
+            return redirect('post-detail', post.id)  # Redirect to post detail page after submission
+    else:
+        form = ReviewForm()
+
+    return render(request, 'posts/add_review.html', {'form': form, 'post': post, 'data': post_review,'avg_rating':average_rating_for_post,'one':one,'two':two,'three':three,'four':four,'five':five,'all_review':all_review})
+
+
+# def reviewInfo(request, post_id):
+#     post = get_object_or_404(Post, id=post_id)
+#
+#
+#     return render(request, 'posts/add_review.html', {'data': post_review})
+
+
 
 
 

@@ -57,3 +57,15 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='reviews')
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])  # rating from 1 to 5
+    title = models.TextField(blank=True, null=True)
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Review by {self.user.username} - Rating: {self.rating}"

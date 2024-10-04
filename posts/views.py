@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import ReviewForm
+from .forms import ReviewForm, PostSearchForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
@@ -12,6 +12,9 @@ from django.views.generic import TemplateView
 from django import template
 from .models import Review
 from django.db.models import Avg
+
+
+
 import numpy as np
 import pandas as pd
 import joblib
@@ -30,6 +33,7 @@ def posts(request):
 def Notifications(request):
     postsNotifications = Post.objects.all()
     return render(request, 'posts/base.html', {'postsNotifications': postsNotifications})
+
 
 
 
@@ -153,6 +157,17 @@ def has_special_permission(user):
 def PostCreateView(request):
     
     if request.method == "POST":
+        use_for = int(request.POST.get('use_for'))
+        price = int(request.POST.get('price'))
+        address = str(request.POST.get('address'))
+        post_pic1 = request.FILES.get('post_pic1')
+        post_pic2 = request.FILES.get('post_pic2')
+        post_pic3 = request.FILES.get('post_pic3')
+        post_pic4 = request.FILES.get('post_pic4')
+        post_pic5 = request.FILES.get('post_pic5')
+        post_pic6 = request.FILES.get('post_pic6')
+
+
         MSZoning = str(request.POST.get('MSZoning'))
         LotFrontage = int(request.POST.get('LotFrontage'))
         LotArea = int(request.POST.get('LotArea'))
@@ -189,6 +204,8 @@ def PostCreateView(request):
         GarageQual = str(request.POST.get('GarageQual'))
         GarageCond = str(request.POST.get('GarageCond'))
         MiscVal = int(request.POST.get('MiscVal'))
+        Exterior1st = str(request.POST.get("Exterior1st"))
+        Exterior2nd = str(request.POST.get("Exterior2nd"))
 
 
         PoolArea = int(request.POST.get('PoolArea'))
@@ -237,7 +254,19 @@ def PostCreateView(request):
             MiscVal=MiscVal,
             SaleType=SaleType,
             SaleCondition=SaleCondition,
-            author = request.user
+            author = request.user,
+            use_for=use_for,
+            price=price,
+            address=address,
+            post_pic1=post_pic1,
+            post_pic2=post_pic2,
+            post_pic3=post_pic3,
+            post_pic4=post_pic4,
+            post_pic5=post_pic5,
+            post_pic6=post_pic6,
+            Exterior1st=Exterior1st,
+            Exterior2nd=Exterior2nd,
+            map=map,
         )
         if post is not None:
             post.save()
@@ -393,11 +422,37 @@ def add_review(request, post_id):
     return render(request, 'posts/add_review.html', {'form': form, 'post': post, 'data': post_review,'avg_rating':average_rating_for_post,'one':one,'two':two,'three':three,'four':four,'five':five,'all_review':all_review})
 
 
-# def reviewInfo(request, post_id):
-#     post = get_object_or_404(Post, id=post_id)
-#
-#
-#     return render(request, 'posts/add_review.html', {'data': post_review})
+
+
+class PostSearchView(ListView):
+    model = Post
+    template_name = 'posts/post_search_results.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        """
+        Override the get_queryset method to filter posts by address using the search query.
+        The search is case-insensitive and returns results where the address contains the search term.
+        """
+        queryset = Post.objects.all()
+        form = PostSearchForm(self.request.GET or None)
+
+        if form.is_valid():
+            address = form.cleaned_data.get('address')
+            if address:
+                # Filter posts where the address contains the search term (case-insensitive)
+                queryset = queryset.filter(address__icontains=address)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        """
+        Pass the search form into the context so it can be rendered in the template.
+        """
+        context = super().get_context_data(**kwargs)
+        context['form_x'] = PostSearchForm(self.request.GET)
+        return context
+
 
 
 

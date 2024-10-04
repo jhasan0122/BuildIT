@@ -1,14 +1,6 @@
 {% extends 'posts/base.html' %}
-{% block content %}
-<div class="w-full h-full bg-gray-50">
-    <div class="flex items-center justify-center pt-8">
-        <div class="">
-            <a  href="{% url 'posts-home' %}" class="cursor-not-allowed text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Buy</a>
-            <a href="{% url 'rent-posts' %}" class=" focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Rent</a>
-            <a href="{% url 'mortgage-posts' %}" class="btn- focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Mortgage</a>
-        </div>
-    </div>
 
+{% block content %}
 
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-16 mx-auto">
@@ -49,8 +41,9 @@
   </div>
 </section>
 
-<div class="flex justify-center gap-2">
+<div class="flex justify-center">
 {% if is_paginated %}
+
           {% if page_obj.has_previous %}
             <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
             <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
@@ -73,6 +66,15 @@
 
 </div>
 
-</div>
+
+{#{% if posts %}#}
+{#    <ul>#}
+{#        {% for post in posts %}#}
+{#            <li>{{ post.address }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#{% else %}#}
+{#    <p>No results found.</p>#}
+{#{% endif %}#}
 
 {% endblock %}

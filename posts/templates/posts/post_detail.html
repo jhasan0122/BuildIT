@@ -1,7 +1,8 @@
 {% extends "posts/base.html" %}
+
 {% block content %}
     <section class="text-gray-600 body-font">
-        <div class="container px-2 py-6 mx-auto flex flex-wrap">
+        <div class="container py-6 mx-auto flex flex-wrap">
             <div class="flex flex-wrap md:-m-2 -m-1">
                 <div class="flex flex-wrap w-1/2">
                     <div class="md:p-2 p-1 w-1/2">
@@ -103,66 +104,23 @@
     </div>
 
 
-
-
-    <!-- component -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css">
-    <div class="flex flex-wrap -mx-3 mb-5">
-        <div class="w-full max-w-full px-3 mb-6  mx-auto">
-            <div class="relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] bg-white m-5">
-                <div class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30">
-                    <!-- card header -->
-                    <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
-                        <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/tight text-dark">
-                            <span class="mr-3 font-semibold text-dark">Projects Deliveries</span>
-                            <span class="mt-1 font-medium text-secondary-dark text-lg/normal">All projects from the Loopple team</span>
-                        </h3>
-                        <div class="relative flex flex-wrap items-center my-2">
-                            <a href="javascript:void(0)"
-                               class="inline-block text-[.925rem] font-medium leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-150 ease-in-out text-light-inverse bg-light-dark border-light shadow-none border-0 py-2 px-5 hover:bg-secondary active:bg-light focus:bg-light">
-                                See other projects </a>
-                        </div>
-                    </div>
-                    <!-- end card header -->
-
-                    <div class="relative w-full h-96">
-                        <iframe class="absolute top-0 left-0 w-full h-full"
-                                src="{{ object.map }}"
-                                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
-                        </iframe>
-                    </div>
-
-                    <!-- card body  -->
-                    <div class="flex-auto block py-8 pt-6 px-9">
-                        <div class="overflow-x-auto">
-                            <table class="w-full my-0 align-middle text-dark border-neutral-200">
-                                <thead class="align-bottom">
-                                <tr class="font-semibold text-[0.95rem] text-secondary-dark">
-                                    <th class="pb-3 text-start min-w-[175px]">TASK</th>
-                                    <th class="pb-3 pr-12 text-end min-w-[175px]">STATUS</th>
-                                    <th class="pb-3 text-start min-w-[175px]">TASK</th>
-                                    <th class="pb-3 pr-12 text-end min-w-[175px]">STATUS</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    General Zoning Classification </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.MSZoning == "A" %}
+    <section class="bg-indigo-50 dark:bg-gray-900 p-3 sm:p-5">
+        <div class="mx-auto max-w-screen-3xl px-8 lg:px-12">
+            <!-- Start coding here -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-xl text-left bg-slate-800 text-white dark:text-gray-400">
+                    <thead class="text-2xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky z-10">
+                    <tr class=" sticky z-10">
+                        <th scope="col" class="px-4 py-3">Features</th>
+                        <th scope="col" class="px-4 py-3">Description</th>
+                        <th scope="col" class="px-4 py-3">Features</th>
+                        <th scope="col" class="px-4 py-3">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">General Zoning Classification</td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.MSZoning == "A" %}
                             {{ "Agriculture" }}
                         {% elif object.MSZoning == "C" %}
                             {{ "Commercial" }}
@@ -180,61 +138,21 @@
                             {{ "Residential Medium Density" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Linear
-                                                    feet of street</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                                        <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg"> {{ object.LotFrontage }} </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Lot size </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {{ object.LotArea }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Type
-                                                    of dwelling</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.BldgType == "1Fam" %}
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Linear
+                            feet of street
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.LotFrontage }}</td>
+                    </tr>
+
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Lot size</td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.LotArea }}</td>
+                        <td class="px-4 py-3 font-bold">Type
+                            of dwelling
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.BldgType == "1Fam" %}
                             {{ "Single-family Detached" }}
                         {% elif object.BldgType == "2FmCon" %}
                             {{ "Two-family Conversion" }}
@@ -246,31 +164,12 @@
                             {{ "Townhouse Inside Unit" }}
                         {% else %}
                             {{ "Unknown Zoning" }}
-                        {% endif %}
+                        {% endif %}</td>
+                    </tr>
 
-
-                    </span>
-                                    </td>
-                                </tr>
-
-
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Rates the overall material and finish</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.OverallQual == "10" %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold"> Rates the overall material and finish</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.OverallQual == "10" %}
                             {{ "Very Excellent" }}
                         {% elif object.OverallQual == "9" %}
                             {{ "Excellent" }}
@@ -292,26 +191,9 @@
                             {{ "Very Poor" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Rates the overall condition Overall Cond</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.OverallCond == "10" %}
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold"> Rates the overall condition Overall Cond</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.OverallCond == "10" %}
                             {{ "Very Excellent" }}
                         {% elif object.OverallCond == "9" %}
                             {{ "Excellent" }}
@@ -333,47 +215,15 @@
                             {{ "Very Poor" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
+                        {% endif %}</td>
+                    </tr>
 
-                    </span>
-                                    </td>
 
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Original construction year </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {{ object.YearBuilt }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Type
-                                                    of roof</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.RoofStyle == "Flat" %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Original construction year</td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.YearBuilt }}</td>
+                        <td class="px-4 py-3 font-bold">Type of roof</td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.RoofStyle == "Flat" %}
                             {{ "Flat" }}
                         {% elif object.RoofStyle == "Gable" %}
                             {{ "Gable" }}
@@ -387,29 +237,12 @@
                             {{ "Shed" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
-                    </span>
-                                    </td>
-                                </tr>
+                        {% endif %}</td>
+                    </tr>
 
-
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Roof material </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.RoofMatl == "ClyTile" %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Roof material</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.RoofMatl == "ClyTile" %}
                             Clay or Tile
                         {% elif object.RoofMatl == "CompShg" %}
                             Standard (Composite) Shingle
@@ -427,26 +260,9 @@
                             Wood Shingles
                         {% else %}
                             Unknown
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Exterior
-                                                    covering on house</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.Exterior1st == "AsbShng" %}
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Exterior covering on house</td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.Exterior1st == "AsbShng" %}
                             {{ "Asbestos Shingles" }}
                         {% elif object.Exterior1st == "AsphShn" %}
                             {{ "Asphalt Shingles" }}
@@ -482,28 +298,12 @@
                             {{ "Wood Shingles" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
+                        {% endif %}</td>
+                    </tr>
 
-                    </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Exterior
-                                                    covering on house (extra)</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.Exterior2nd == "AsbShng" %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Exterior covering on house (extra)</td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.Exterior2nd == "AsbShng" %}
                             {{ "Asbestos Shingles" }}
                         {% elif object.Exterior2nd == "AsphShn" %}
                             {{ "Asphalt Shingles" }}
@@ -539,26 +339,9 @@
                             {{ "Wood Shingles" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Type
-                                                    of foundation</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.Foundation == "BrkTil" %}
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Type of foundation</td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.Foundation == "BrkTil" %}
                             Brick & Tile
                         {% elif object.Foundation == "CBlock" %}
                             Cinder Block
@@ -572,32 +355,12 @@
                             Wood
                         {% else %}
                             Unknown
-                        {% endif %}
+                        {% endif %}</td>
+                    </tr>
 
-
-
-                    </span>
-                                    </td>
-                                </tr>
-
-
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Evaluates the quality of the material on the exterior </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.ExterQual == "Ex" %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Evaluates the quality of the material on the exterior</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.ExterQual == "Ex" %}
                             {{ "Excellent" }}
                         {% elif object.ExterQual == "Gd" %}
                             {{ "Good" }}
@@ -609,26 +372,11 @@
                             {{ "Poor" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Evaluates
-                                                    the present condition of the material on the exterior</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.ExterCond == "Ex" %}
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Evaluates
+                            the present condition of the material on the exterior
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.ExterCond == "Ex" %}
                             {{ "Excellent" }}
                         {% elif object.ExterCond == "Gd" %}
                             {{ "Good" }}
@@ -640,27 +388,12 @@
                             {{ "Poor" }}
                         {% else %}
                             {{ "Unknown" }}
-                        {% endif %}
-                    </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Evaluates the height of the basement </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.BsmtQual == "Ex" %}
+                        {% endif %}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Evaluates the height of the basement</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.BsmtQual == "Ex" %}
                             Excellent (100+ inches)
                         {% elif object.BsmtQual == "Gd" %}
                             Good (90-99 inches)
@@ -674,26 +407,9 @@
                             No Basement
                         {% else %}
                             Unknown
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Evaluates
-                                                    the general condition of the basement</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.BsmtCond == "Ex" %}
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Evaluates the general condition of the basement</td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.BsmtCond == "Ex" %}
                             Excellent
                         {% elif object.BsmtCond == "Gd" %}
                             Good
@@ -707,370 +423,16 @@
                             No Basement
                         {% else %}
                             Unknown
-                        {% endif %}
-                    </span>
-                                    </td>
-                                </tr>
+                        {% endif %}</td>
+                    </tr>
 
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Total square feet of basement area</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {{ object.TotalBsmtSF }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Central
-                                                    air conditioning</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.CentralAir == "Y" %}
-                            Yes
-                        {% elif object.CentralAir == "N" %}
-                            No
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">First
-                                                    Floor square feet</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {{ object.FirstFlrSF }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Second
-                                                    floor square feet</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {{ object.SecondFlrSF }}
-                    </span>
-                                    </td>
-                                </tr>
-
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Above grade (ground) living area square feet </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {{ object.GrLivArea }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Total
-                                                    rooms above grade (does not include bathrooms)</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                                        <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg"> {{ object.TotRmsAbvGrd }} </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Garage
-                                                    location </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.KitchenQual == "Ex" %}
-                            Excellent
-                        {% elif object.KitchenQual == "Gd" %}
-                            Good
-                        {% elif object.KitchenQual == "TA" %}
-                            Typical/Average
-                        {% elif object.KitchenQual == "Fa" %}
-                            Fair
-                        {% elif object.KitchenQual == "Po" %}
-                            Poor
-                        {% else %}
-                            Unknown
-                        {% endif %}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Kitchen
-                                                    quality</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.KitchenQual == "Ex" %}
-                            Excellent
-                        {% elif object.KitchenQual == "Gd" %}
-                            Good
-                        {% elif object.KitchenQual == "TA" %}
-                            Typical/Average
-                        {% elif object.KitchenQual == "Fa" %}
-                            Fair
-                        {% elif object.KitchenQual == "Po" %}
-                            Poor
-                        {% else %}
-                            Unknown
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                </tr>
-
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Size of garage in car capacity</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {{ object.GarageCars }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Size
-                                                    of garage in square feet</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                                        <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg"> {{ object.GarageArea }} </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Garage quality </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.GarageQual == "Ex" %}
-                            Excellent
-                        {% elif object.GarageQual == "Gd" %}
-                            Good
-                        {% elif object.GarageQual == "TA" %}
-                            Typical/Average
-                        {% elif object.GarageQual == "Fa" %}
-                            Fair
-                        {% elif object.GarageQual == "Po" %}
-                            Poor
-                        {% elif object.GarageQual == "NA" %}
-                            No Garage
-                        {% else %}
-                            Unknown
-                        {% endif %}
-
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Garage
-                                                    condition</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.GarageCond == "Ex" %}
-                            Excellent
-                        {% elif object.GarageCond == "Gd" %}
-                            Good
-                        {% elif object.GarageCond == "TA" %}
-                            Typical/Average
-                        {% elif object.GarageCond == "Fa" %}
-                            Fair
-                        {% elif object.GarageCond == "Po" %}
-                            Poor
-                        {% elif object.GarageCond == "NA" %}
-                            No Garage
-                        {% else %}
-                            Unknown
-                        {% endif %}
-
-
-                    </span>
-                                    </td>
-                                </tr>
-
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Pool area in square feet </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {{ object.PoolArea }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Value
-                                                    of miscellaneous feature</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                                        <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg"> {{ object.LotFrontage }} </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Lot size </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {{ object.MiscVal }}
-                    </span>
-                                    </td>
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">Type
-                                                    of sale</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-violet-100 rounded-lg">
-                        {% if object.SaleType == "WD" %}
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Total square feet of basement area</td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.TotalBsmtSF }}</td>
+                        <td class="px-4 py-3 font-bold">Type
+                            of sale
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.SaleType == "WD" %}
                             Warranty Deed - Conventional
                         {% elif object.SaleType == "CWD" %}
                             Warranty Deed - Cash
@@ -1092,27 +454,42 @@
                             Other
                         {% else %}
                             Unknown
-                        {% endif %}
-                    </span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-dashed last:border-b-0">
-                                    <td class="p-3 pl-0">
-                                        <div class="flex items-center">
-                                            <div class="relative inline-block shrink-0 rounded-2xl me-3">
-                                                <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                                     class="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl" alt="">
-                                            </div>
-                                            <div class="flex flex-col justify-start">
-                                                <a href="javascript:void(0)"
-                                                   class="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary">
-                                                    Condition of sale </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-3 pr-12 text-end">
-                    <span class="text-center align-baseline inline-flex px-4 py-3 mr-auto items-center font-semibold text-[.95rem] leading-none text-primary bg-primary-light rounded-lg">
-                        {% if object.SaleCondition == "Normal" %}
+                        {% endif %}</td>
+
+
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Central
+                            air conditioning
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.CentralAir == "Y" %}
+                            Yes
+                        {% elif object.CentralAir == "N" %}
+                            No
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">First
+                            Floor square feet
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600"> {{ object.FirstFlrSF }}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Second
+                            floor square feet
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.SecondFlrSF }}</td>
+                        <td class="px-4 py-3 font-bold">Above grade (ground) living area square feet</td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.GrLivArea }}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Total
+                            rooms above grade (does not include bathrooms
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.TotRmsAbvGrd }}</td>
+                        <td class="px-4 py-3 font-bold"> Condition of sale</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.SaleCondition == "Normal" %}
                             Normal Sale
                         {% elif object.SaleCondition == "Abnorml" %}
                             Abnormal Sale - trade, foreclosure, short sale
@@ -1126,17 +503,112 @@
                             Home was not completed when last assessed (associated with New Homes)
                         {% else %}
                             Unknown Sale Condition
-                        {% endif %}
-                    </span>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                        {% endif %}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Garage
+                            location
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.KitchenQual == "Ex" %}
+                            Excellent
+                        {% elif object.KitchenQual == "Gd" %}
+                            Good
+                        {% elif object.KitchenQual == "TA" %}
+                            Typical/Average
+                        {% elif object.KitchenQual == "Fa" %}
+                            Fair
+                        {% elif object.KitchenQual == "Po" %}
+                            Poor
+                        {% else %}
+                            Unknown
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Kitchen
+                            quality
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.KitchenQual == "Ex" %}
+                            Excellent
+                        {% elif object.KitchenQual == "Gd" %}
+                            Good
+                        {% elif object.KitchenQual == "TA" %}
+                            Typical/Average
+                        {% elif object.KitchenQual == "Fa" %}
+                            Fair
+                        {% elif object.KitchenQual == "Po" %}
+                            Poor
+                        {% else %}
+                            Unknown
+                        {% endif %}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Size of garage in car capacity</td>
+                        <td class="px-4 py-3 bg-slate-600"> {{ object.GarageCars }}</td>
+                        <td class="px-4 py-3 font-bold">Size
+                            of garage in square feet
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.GarageArea }}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Garage quality</td>
+                        <td class="px-4 py-3 bg-slate-600"> {% if object.GarageQual == "Ex" %}
+                            Excellent
+                        {% elif object.GarageQual == "Gd" %}
+                            Good
+                        {% elif object.GarageQual == "TA" %}
+                            Typical/Average
+                        {% elif object.GarageQual == "Fa" %}
+                            Fair
+                        {% elif object.GarageQual == "Po" %}
+                            Poor
+                        {% elif object.GarageQual == "NA" %}
+                            No Garage
+                        {% else %}
+                            Unknown
+                        {% endif %}</td>
+                        <td class="px-4 py-3 font-bold">Garage
+                            condition
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{% if object.GarageCond == "Ex" %}
+                            Excellent
+                        {% elif object.GarageCond == "Gd" %}
+                            Good
+                        {% elif object.GarageCond == "TA" %}
+                            Typical/Average
+                        {% elif object.GarageCond == "Fa" %}
+                            Fair
+                        {% elif object.GarageCond == "Po" %}
+                            Poor
+                        {% elif object.GarageCond == "NA" %}
+                            No Garage
+                        {% else %}
+                            Unknown
+                        {% endif %}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Pool area in square feet</td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.PoolArea }}</td>
+                        <td class="px-4 py-3 font-bold">Value
+                            of miscellaneous feature
+                        </td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.LotFrontage }}</td>
+                    </tr>
+
+                    <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3 font-bold">Misc Value</td>
+                        <td class="px-4 py-3 bg-slate-600">{{ object.MiscVal }}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
+        </div>
+    </section>
+
+
 
     <div>
         {% if object.author == user %}
@@ -1148,17 +620,17 @@
 
         {% if object.use_for == 0 and user.first_name == 'U' %}
             <div class=" flex justify-evenly">
-            <div class="flex justify-center p-4">
-                <div class="relative inline-flex  group">
-                    <div
-                            class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                <div class="flex justify-center p-4">
+                    <div class="relative inline-flex  group">
+                        <div
+                                class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                        </div>
+                        <a href="{% url 'post-pay' object.id %}" title="Get quote now"
+                           class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                           role="button">Book Now
+                        </a>
                     </div>
-                    <a href="{% url 'post-pay' object.id %}" title="Get quote now"
-                       class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                       role="button">Book Now
-                    </a>
                 </div>
-            </div>
 
 
                 <div class="col-span-12 md:col-span-4 max-lg:mt-8 md:pl-8 w-80 pt-8">
@@ -1174,25 +646,32 @@
 
 
         {% elif object.use_for == 1 and user.first_name == 'U' %}
-            </div>
+            <div class="flex justify-evenly py-8">
             <div class="flex justify-center p-4">
                 <div class="relative inline-flex  group">
                     <div
                             class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
                     </div>
-                    <a href="{% url 'rent-card' object.id %}" title="Get quote now"
+                    <a href="{% url 'post-pay' object.id %}" title="Get quote now"
                        class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                       role="button">Rent Calculate
+                       role="button">Book Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-span-12 md:col-span-4 max-lg:mt-8 md:pl-8 w-80 pt-8">
+                <div class="flex items-center flex-col justify-center w-full h-full ">
+                    <a href="{% url 'add_review' post.id %}"
+                       class="rounded-full px-6 py-4 bg-indigo-600 font-semibold text-lg text-white whitespace-nowrap mb-6 w-full text-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400">
+                        Review
                     </a>
                 </div>
             </div>
             </div>
 
 
-
-
         {% elif object.use_for == 2 and user.first_name == 'U' %}
-            </div>
+            <div class="flex justify-evenly py-8">
             <div class="flex justify-center p-4">
                 <div class="relative inline-flex  group">
                     <div
@@ -1201,6 +680,14 @@
                     <a href="{% url 'mortgage-card' object.id %}" title="Get quote now"
                        class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                        role="button">Mortgage Calculate
+                    </a>
+                </div>
+            </div>
+            <div class="col-span-12 md:col-span-4 max-lg:mt-8 md:pl-8 w-80 pt-8">
+                <div class="flex items-center flex-col justify-center w-full h-full ">
+                    <a href="{% url 'add_review' post.id %}"
+                       class="rounded-full px-6 py-4 bg-indigo-600 font-semibold text-lg text-white whitespace-nowrap mb-6 w-full text-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400">
+                        Review
                     </a>
                 </div>
             </div>

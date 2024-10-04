@@ -1,9 +1,10 @@
 from django.urls import path, include
 from . import views
 from .views import (PostListView, PostDetailView, PostCreateView, PostUpdateView,PostDeleteView,  RentPostListView,
-                    MortgagePostListView, PostPayView, MyPostListView,MortgageCardView,RentCardView)
+                    MortgagePostListView, PostPayView, MyPostListView,MortgageCardView,RentCardView,PostSearchView)
 urlpatterns = [
     path('',PostListView.as_view(),name='posts-home'),
+    path('search/', PostSearchView.as_view(), name='post_search'),
     path('rentPost/',RentPostListView.as_view(),name='rent-posts'),
     path('morgagePost/',MortgagePostListView.as_view(),name='mortgage-posts'),
     path('morgagePost/<int:pk>/', MortgageCardView.as_view(), name='mortgage-card'),

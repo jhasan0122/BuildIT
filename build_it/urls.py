@@ -23,16 +23,19 @@ from django.conf.urls.static import static
 from django.conf import settings
 from users.views import profile_view
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
+    path('users/', include('users.urls')),
     path('hire/',include('hire.urls')),
     path('chat/',include('a_rtchat.urls')),
     path('register/', user_views.register, name='register'),
     path('login/', CustomLoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-    path('profile/', user_views.profile, name='profile'),
+    path('profile/', user_views.profile_update_view, name='profile'),
     path('profile/<str:username>/', profile_view, name='profile'),
+    # path('delete-profile-pic/', deleteProfilePic, name='deleteProfilePic'),  # Adjust the URL path as necessary
 
 ]
 

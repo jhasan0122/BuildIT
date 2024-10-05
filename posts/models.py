@@ -5,12 +5,12 @@ from django.urls import reverse
 from PIL import Image
 
 class Post(models.Model):
-    post_pic1 = models.ImageField(default='empty.jpg',upload_to='post_pic1')
-    post_pic2 = models.ImageField(default='empty.jpg',upload_to='post_pic2')
-    post_pic3 = models.ImageField(default='empty.jpg',upload_to='post_pic3')
-    post_pic4 = models.ImageField(default='empty.jpg',upload_to='post_pic4')
-    post_pic5 = models.ImageField(default='empty.jpg',upload_to='post_pic5')
-    post_pic6 = models.ImageField(default='empty.jpg',upload_to='post_pic6')
+    post_pic1 = models.FileField(default='empty.jpg',null=True,blank=True,upload_to='post-pic1/')
+    post_pic2 = models.FileField(default='empty.jpg',null=True,blank=True,upload_to='post-pic2/')
+    post_pic3 = models.FileField(default='empty.jpg',null=True,blank=True,upload_to='post-pic3/')
+    post_pic4 = models.FileField(default='empty.jpg',null=True,blank=True,upload_to='post-pic4/')
+    post_pic5 = models.FileField(default='empty.jpg',null=True,blank=True,upload_to='post-pic5/')
+    post_pic6 = models.FileField(default='empty.jpg',null=True,blank=True,upload_to='post-pic6/')
     address = models.CharField(max_length=100,default='')
     price = models.IntegerField(default=0)
     use_for = models.IntegerField(default=0)

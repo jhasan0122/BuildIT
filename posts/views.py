@@ -160,6 +160,7 @@ def PostCreateView(request):
         use_for = int(request.POST.get('use_for'))
         price = int(request.POST.get('price'))
         address = str(request.POST.get('address'))
+
         post_pic1 = request.FILES.get('post_pic1')
         post_pic2 = request.FILES.get('post_pic2')
         post_pic3 = request.FILES.get('post_pic3')

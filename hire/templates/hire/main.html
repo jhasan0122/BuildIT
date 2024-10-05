@@ -26,6 +26,11 @@
                         <p class="">{{ hire.expart_type }}</p>
                     </div>
                     <div class="flex my-2">
+                        <div class="text-orange-800 min-w-24">Contract Number: &nbsp;</div>
+                        <!-- Display the expertise type dynamically -->
+                        <p class="">{{ hire.phone }}</p>
+                    </div>
+                    <div class="flex my-2">
                         <div class="min-w-24 hover:underline cursor-pointer text-orange-800">Description:</div>
                         <!-- Display the description dynamically -->
                         <p class="">{{ hire.description }}</p>
@@ -34,12 +39,12 @@
                         <p class="text-orange-800">Offered payment: &nbsp;</p>
                         <!-- Display the offered money dynamically -->
                         <p class="text-green-800">{{ hire.offered_money }}</p>
-                        taka
+                        $
                     </div>
                 </div>
                 <hr class="my-2 bg-black">
                 <!-- You can keep the button static or link it dynamically -->
-                {% if user.first_name == 'P' or user.first_name == 'E'%}
+                {% if user != hire.user%}
                     <button class="bg-indigo-300 text-white rounded-md shadow-md px-4 py-2">Checkout</button>
                     <a href="{% url 'start-chat' hire.user %}"
                        class="bg-indigo-300 text-white rounded-md shadow-md px-4 py-2">Message</a>

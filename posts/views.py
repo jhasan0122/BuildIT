@@ -157,7 +157,6 @@ def has_special_permission(user):
 @csrf_exempt
 @custom_login_required(has_special_permission)
 def PostCreateView(request):
-    
     if request.method == "POST":
         use_for = int(request.POST.get('use_for'))
         price = int(request.POST.get('price'))
